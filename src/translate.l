@@ -7,8 +7,8 @@ se_begin [^1-9a-zA-Z]+"RetSelf"{whitespace}*"("{whitespace}*
 se_end   {whitespace}*")"
 whitespace   [ \f\r\t\v]
 character_string \"{character_representation}*\"
-character_representation {common_character_respresentation}|($\")|\'|(${hex_digit}{hex_digit}{hex_digit}{hex_digit})
-common_character_respresentation [^$\"\']|"$$"|"$L"|"$N"|"$P"|"$R"|"$T" 
+character_representation (\\\")|{common_character_respresentation}
+common_character_respresentation [^\"]
 hex_digit    [0-9]|[a-f]|[A-F]
 se_string   {se_begin}({character_string}({whitespace}|{newline})*)+{se_end}
 newline      \n
