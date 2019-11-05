@@ -21,7 +21,8 @@ int main(int argc, char* argv[]){
 	//afile.open(argv[1], ios::in);
 	//translate(afile, cout);
 	//end - test code
-
+	QTime t;
+	t.start();
 	QStringList filters;
 	filters << "*.cpp" << "*.h";
 	QString path = argv[1];
@@ -36,7 +37,7 @@ int main(int argc, char* argv[]){
 	}
 
 	if (manager.waitForFinished(-1)){
-		printf("finished");
+		printf("finished,%d files have been translated! elapse %d ms\n",allFiles.size(),t.elapsed());
 	}
 	return 0;	
 }
